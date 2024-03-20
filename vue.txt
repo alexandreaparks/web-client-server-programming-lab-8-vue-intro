@@ -1,0 +1,28 @@
+Vue.js
+
+- a JavaScript front-end framework - used for creating structure in complex JavaScript
+- runs in browser
+
+Other front-end frameworks:
+- Reactjs (most popular, not beginner-friendly)
+- Angular
+
+- Vue.js was inspired by Reactjs, much more beginner-friendly
+
+Concepts: MVVM (Model, View, ViewModel)
+
+Model - data the webpage needs - could be part of the page, included from a database server, accessed via API calls
+
+View - web page - what user sees
+
+ViewModel - connects the view and model - contains application logic
+    Directives - control what is displayed in view based on the state of application's data
+    DOM Listeners - receive messages from the view, and may update data in the model
+
+More concepts:
+
+Data binding - connecting data in the model to the view - displays data from the model on page using directives
+
+Vue is Reactive - page updates automatically in response to changes in data
+
+
