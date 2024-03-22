@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Hello Page</title>
+        <title>Hello Vue</title>
 
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -17,24 +17,55 @@
 
             <h1>Hello Vue!</h1>
 
-            {{ message }}
+            <p>{{ messageWithExclamationPoints }}</p>
+
+            <button v-on:click="addExclamationPoints">Add !</button>
+
+            <button v-on:click="clearExclamationPoints">Clear Exclamation Points</button>
 
 
         </div>
 
         <script>
             // set up vue app
+            const { createApp, ref, computed } = Vue
 
-            const { createApp, ref } = Vue
 
             createApp({
                 setup() {
                     // define things our Vue app needs
 
-                    const message = ref('Howdy!')
+                    const message = ref('Howdy')
+                    const numberOfExclamationPoints = ref(0)
+
+                    function addExclamationPoints () {
+                        if (numberOfExclamationPoints.value < 10){
+                            numberOfExclamationPoints.value++
+                        } else {
+                            alert('No more exclamation points can be added!')
+                        }
+
+                    }
+
+                    function clearExclamationPoints () {
+                        numberOfExclamationPoints.value = 0
+                    }
+
+                    const messageWithExclamationPoints = computed(function () {
+                        let computedMessage = message.value
+                        // add ! based on numberOfExclamationPoints
+                        for (let x = 0; x < numberOfExclamationPoints.value; x++) {
+                            computedMessage = computedMessage + '!'
+                        }
+                        return computedMessage
+                    })
 
                     return {
-                        message
+                        message,
+                        numberOfExclamationPoints,
+                        messageWithExclamationPoints,
+                        addExclamationPoints,
+                        clearExclamationPoints
                     }
                 }
             }).mount('#app')
