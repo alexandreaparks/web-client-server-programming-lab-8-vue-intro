@@ -17,7 +17,7 @@
 
             <h1>Hello Vue!</h1>
 
-            <p>{{ messageWithExclamationPoints }}</p>
+            <p>{{ messageWithExclamationPoints}}</p>
 
             <button v-on:click="addExclamationPoints">Add !</button>
 
@@ -61,11 +61,13 @@
                     })
 
                     return {
+
                         message,
                         numberOfExclamationPoints,
                         messageWithExclamationPoints,
                         addExclamationPoints,
                         clearExclamationPoints
+
                     }
                 }
             }).mount('#app')

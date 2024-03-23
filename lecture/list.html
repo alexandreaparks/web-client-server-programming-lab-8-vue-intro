@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>To-Do List</title>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <style>
+            body {
+                background-color: aqua;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="app">
+
+            <h1>To-Do List</h1>
+
+
+            <label>Please enter your to-do task</label>
+            <br>
+            <input v-model="newTask">
+            <br>
+            <button v-on:click="addTask">Add Task</button>
+
+            <h2>To-Do List</h2>
+            <!-- for every task in taskList, make a li element -->
+            <ul>
+                <li v-for="task in taskList">
+                    {{ task }}
+                </li>
+            </ul>
+
+
+
+        </div>
+
+        <script>
+
+            const { createApp, ref } = Vue
+
+
+            createApp({
+                setup() {
+
+                    const taskList = ref(['Water plants', 'Pay cellphone bill', 'Wash car'])
+
+                    const newTask = ref('')
+
+                    function addTask() {
+
+                        // add newTask to taskList
+
+                        if (newTask.value) {
+                            taskList.value.push(newTask.value)
+                            newTask.value = ''
+                        } else {
+                            alert('Please enter a task!')
+                        }
+
+                    }
+
+
+                    return {
+
+                        taskList,
+                        newTask,
+                        addTask
+
+                    }
+                }
+            }).mount('#app')
+
+
+
+
+        </script>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,11 @@
+This error means that you are trying to use a variable/function within the template that
+has not yet been defined. Or maybe the variable/function was defined, but it was
+not included in the return statement object.
+
+You can fix this error by making sure all variables/functions needed are defined and returned.
+You may also simply have a typo in your variable/function name that needs to be fixed.
+
+It wouldn't be a good idea to ignore this warning message because there will be something
+missing from your webpage that you intended to include in the HTML template. Other parts of
+the webpage will probably look and work correctly, but there will be that missing data that
+can't be accessed until it's defined and returned properly.
